@@ -15,6 +15,7 @@ import android.content.pm.PackageManager
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
+import android.widget.Toast
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkInfo
 import java.util.UUID
@@ -57,6 +58,7 @@ class MainActivity : AppCompatActivity() {
 
         // Listener para el botón "Play"
         btnPlay.setOnClickListener {
+            Toast.makeText(this, "Servicio del buscador activado", Toast.LENGTH_SHORT).show()
             this.semaforo="V"
             val sharedPreferences = getSharedPreferences("WebCheckerPrefs", MODE_PRIVATE)
             sharedPreferences.edit().putString("semaforo", semaforo).apply()
@@ -76,7 +78,7 @@ class MainActivity : AppCompatActivity() {
 
         // Listener para el botón "Stop"
         btnStop.setOnClickListener {
-            println("Pulso boton stop")
+            Toast.makeText(this, "Servicio del buscador desactivado", Toast.LENGTH_SHORT).show()
             this.semaforo="R"
             val sharedPreferences = getSharedPreferences("WebCheckerPrefs", MODE_PRIVATE)
             sharedPreferences.edit().putString("semaforo", semaforo).apply()
